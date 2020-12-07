@@ -1,0 +1,45 @@
+{
+  "name": "medods-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon src/bin/www",
+    "start": "cross-env NODE_ENV=production node dist/bin/www",
+    "build": "npm run lint:fix && npm run prettier:write && npm run clean && babel src -d dist",
+    "clean": "rimraf dist && mkdir dist",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix src",
+    "prettier": "prettier --check **/*.js",
+    "prettier:write": "prettier --write src/**/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "http-status": "^1.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^6.0.0",
+    "koa-logger": "^3.2.1",
+    "mongoose": "^5.11.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2"
+  }
+}
