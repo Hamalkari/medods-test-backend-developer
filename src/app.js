@@ -1,4 +1,5 @@
 const Koa = require('koa');
+const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 const helmet = require('koa-helmet');
 const cors = require('@koa/cors');
@@ -10,6 +11,11 @@ const notFoundHandler = require('./midddlewares/notFound');
 const erorrHandler = require('./midddlewares/error');
 
 const app = new Koa();
+const router = new Router();
+
+const authRoute = require('./routes/auth.route');
+
+router.use('/auth', authRoute.routes());
 
 mongoose.connect(mongodbUri, {
   useNewUrlParser: true,
@@ -31,6 +37,9 @@ app.use(
     enableTypes: ['json'],
   }),
 );
+
+app.use(router.allowedMethods());
+app.use(router.routes());
 
 app.use(notFoundHandler);
 
