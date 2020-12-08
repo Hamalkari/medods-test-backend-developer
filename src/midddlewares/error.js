@@ -9,7 +9,7 @@ async function errorHandler(ctx, next) {
 
     ctx.body = {
       message: error.message || 'Проблемы на сервере!',
-      ...(env === 'development' && { stack: err.stack }),
+      ...(env === 'development' && { stack: error.stack }),
     };
   }
 }
