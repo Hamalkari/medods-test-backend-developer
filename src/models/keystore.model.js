@@ -4,12 +4,12 @@ const bcrypt = require('bcrypt');
 const KeystoreSchema = new Schema(
   {
     user: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.String,
       required: true,
       ref: 'User',
     },
     refreshToken: {
-      type: String,
+      type: Schema.Types.String,
       required: true,
     },
     blacklisted: {

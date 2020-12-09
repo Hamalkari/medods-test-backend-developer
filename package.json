@@ -26,7 +26,8 @@
     "koa-helmet": "^6.0.0",
     "koa-logger": "^3.2.1",
     "koa-router": "^10.0.0",
-    "mongoose": "^5.11.4"
+    "mongoose": "^5.11.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
