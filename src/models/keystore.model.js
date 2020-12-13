@@ -8,6 +8,14 @@ const KeystoreSchema = new Schema(
       required: true,
       ref: 'User',
     },
+    accessTokenPrm: {
+      type: String,
+      required: true,
+    },
+    refreshTokenPrm: {
+      type: String,
+      required: true,
+    },
     refreshToken: {
       type: Schema.Types.String,
       required: true,
@@ -20,7 +28,7 @@ const KeystoreSchema = new Schema(
   { timestamps: true },
 );
 
-KeystoreSchema.index({ user: 1, refreshToken: 1 });
+KeystoreSchema.index({ user: 1, accessTokenPrm: 1, refreshTokenPrm: 1 });
 
 KeystoreSchema.pre('save', async function () {
   const keystore = this;
@@ -34,9 +42,13 @@ KeystoreSchema.pre('save', async function () {
   );
 
   keystore.refreshToken = refreshTokenHash;
-
-  await keystore.save();
 });
+
+KeystoreSchema.methods.compareRefreshToken = function (plainRefreshToken) {
+  const keystore = this;
+
+  return bcrypt.compare(plainRefreshToken, keystore.refreshToken);
+};
 
 const KeystoreModel = model('KeyStore', KeystoreSchema, 'keystores');
 
