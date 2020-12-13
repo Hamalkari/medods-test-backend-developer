@@ -20,6 +20,8 @@ router.use('/auth', authRoute.routes());
 mongoose.connect(mongodbUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 });
 
 mongoose.connection.on('erorr', console.error);
