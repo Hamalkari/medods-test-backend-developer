@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon src/bin/www",
-    "start": "cross-env NODE_ENV=production pm2 start src/bin/www",
-    "test": "cross-env NODE_ENV=test jest",
+    "dev": "cross-env NODE_ENV=development nodemon src/bin/www.js",
+    "start": "cross-env NODE_ENV=production pm2 start src/bin/www.js",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose --forceExit",
     "lint": "eslint .",
     "lint:fix": "eslint --fix src",
     "prettier": "prettier --check **/*.js",
@@ -30,6 +30,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.18",
     "cross-env": "^7.0.3",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -44,6 +45,9 @@
     "supertest-koa-agent": "^0.3.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ]
   }
 }
