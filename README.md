@@ -27,3 +27,10 @@ EXPIRES_REFRESH_TOKEN='30d'
 ```sh
 npm run dev
 ```
+
+## Тестирование
+
+Для запуска тестов
+```sh
+npm test
+```
