@@ -7,8 +7,8 @@ const logger = require('koa-logger');
 const mongoose = require('mongoose');
 
 const { env, mongodbUri } = require('./config');
-const notFoundHandler = require('./midddlewares/notFound');
-const erorrHandler = require('./midddlewares/error');
+const notFoundHandler = require('./middlewares/notFound');
+const erorrHandler = require('./middlewares/error');
 
 const app = new Koa();
 const router = new Router();

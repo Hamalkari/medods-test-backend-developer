@@ -12,7 +12,7 @@ const {
   verifyToken,
 } = require('../utils/auth');
 
-const authMiddleware = require('../midddlewares/auth');
+const authMiddleware = require('../middlewares/auth');
 
 router.get('/issueTokens', async (ctx) => {
   const { GUID: userId } = ctx.query;
