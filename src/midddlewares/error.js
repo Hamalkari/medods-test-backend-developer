@@ -5,7 +5,7 @@ async function errorHandler(ctx, next) {
   try {
     await next();
   } catch (error) {
-    ctx.status = error.status || httpStatus['INTERNAL_SERVER_ERROR'];
+    ctx.status = error.status || httpStatus.INTERNAL_SERVER_ERROR;
 
     ctx.body = {
       message: error.message || 'Проблемы на сервере!',
