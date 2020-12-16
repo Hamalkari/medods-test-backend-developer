@@ -4,11 +4,11 @@
 
 1. Склонируйте репозиторий
 ```sh
-git clone https://github.com/Hamalkari/memods-test-backend-developer.git
+git clone https://github.com/Hamalkari/medods-test-backend-developer.git
 ```
 2. Перейдите в установленную папку
 ```sh
-cd memods-test-backend-developer/
+cd medods-test-backend-developer/
 ```
 3. Установите все необходимые зависимости
 ```
